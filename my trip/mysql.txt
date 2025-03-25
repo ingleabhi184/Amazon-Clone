@@ -1,0 +1,106 @@
+Max
+This function returns maximum form specific call
+
+syntax:- select max(<column-name>) As column-variable-name form table name[where condition];
+employee => 1) Id 2)name 3)salary 4)dept 5)exp : column Name.
+
+1.ex :- show max salary paid to the employee?
+select max (salary) As "max-salary" from employee;
+select max (exp) As "max-salary" form employee;
+2.ex :- show max salary paid s/w [2500-4500]?
+select max (salary) from employee [salary>2500] & [salary<4500];
+3.Display max salary for employee between 1500-2500 for "C-S-E" department only?
+=> select max (salary) from as "max-salary-cse-department" from employee
+where [salary > 1500] & [salary < 2500] and dept="cse"
+
+sum()
+This function returns sum values for expence column
+syntax:- select sum (<col-name>) As "column-name" from table [where condition];
+
+ex:- show total experience on employee salary?
+
+select sum (salary) As" total expence on salary" from employee;
+
+ex:- show total expence on salary for["cse"dept]?
+select sum (salary) As "total expence cse salary" from employee; where dept="cse"
+Avg
+This function returns avg value for a specific column
+syntax:- select avg(col-name) as "columnname" from tablename [where condition];
+ex:- show average expence on salary?
+
+select avg(salary) as "average expence on salary" from employee;
+ex:- average expence on salary for ["cse" or "it"] department?
+
+select avg(salary) as "avg salary cse & it" fro
+ex- 
+This function returns minimum values for a specific column
+Ucase() 
+this function return column text data into upper case
+Lcase()this function length of specific data 
+
+
+LEFT JOIN
+returns all records from tables & matching records from table 
+syntax- select column from tables. col=table.col;
+
+
+RIGHT JOIN
+returns all records from table & matching records from table 
+select 'column from both table' from table right join table on table1.col=table2.col;
+ select pinfo.id, pinfo.fname, depart.dept,depart.salary,from pinfo right join depart on pinfo.id=depart.id;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

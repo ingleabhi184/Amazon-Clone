@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make Your Trip</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="flight.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+
+</head>
+<body>
+    <div class="abhi">
+    <header>
+        
+        <div class="container ">
+            
+
+           
+            <div class="boss">
+                <div class="logo">
+                    <img src="https://thumbs.dreamstime.com/b/airplane-travel-26300506.jpg" height="50px" alt="Logo">
+                </div>
+                <div class="heading">
+
+                    <pre>🅼🅰🅺🅴  🆈🅾🆄🆁  🆃🆁🅸🅿</pre>
+                </div>
+                <div class="bar">
+                    <nav>
+                        <ul>
+                            <li><a href="#home"><b>Home</b></a></li>
+                            <li><a href="#booking"><b>MyTrip</b></a></li>
+                            <li><a href="#about"><b>About</b></a></li>
+                            <li><a href="#contact"><b>Contact</b></a></li>
+                            
+                        </ul>
+                        <a href="#">Login or Create Account</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+
+    </header>
+
+
+    <div class="menuc ">
+        
+            <div class="page">
+                <div class="plane">
+                    <a href="#"><img src="plane" height="25px"></a>
+                    <p style="padding-bottom: 10px;">Flight</p>
+                </div>
+                <div class="ctrain">
+                    <a href="#"><img src="train-subway-solid.svg" height="25px"></a>
+                    <p style="padding-bottom: 10px;">Trains</p>
+                </div>
+                <div class="hotel">
+                    <a href="#"><img src="hotel-solid.svg" height="25px"></a>
+                    <p style="padding-bottom: 10px;">hotels</p>
+                </div>
+                <div class="cab">
+                    <a href="#"><img src="taxi-solid.svg" height="25px"></a>
+
+                    <p style="text-decoration: none">Cabs</p>
+                </div>
+                <div class="insurance">
+                    <a href="#"><img src="car-burst-solid.svg" height="25px"></a>
+                    <p style="padding-bottom: 10px;">Travel</br>Insurance</p>
+                </div>
+                <div class="bus">
+                    <a href="#"><img src="bus-solid.svg" height="25px"></a>
+                    <p style="padding-bottom: 10px;">Buses</p>
+                </div>
+                <div class="home">
+                    <i class="fa-solid fa-house fa-2x"></i>
+                   <p style="padding-bottom: 10px; padding-top: 15px;"> Homestays </br>& Villas</p>
+                </div>
+                <div class="holiday">
+                    <i class="fa-solid fa-umbrella-beach fa-2x"></i>
+                    <p style="padding-bottom: 10px; padding-top: 15px;"> Holiday </br>Package</p>
+                </div>
+            </div>
+       
+    </div>
+
+    <div class="container">
+        <div class="main">
+
+            <div class="radio-container">
+                <input type="radio" id="oneWay" name="tripType" value="oneWay" checked>
+                <label for="oneWay">One Way</label>
+
+
+                <input type="radio" id="roundTrip" name="tripType" value="roundTrip">
+                <label for="roundTrip">Round Trip</label>
+
+                <input type="radio" id="multiCity" name="tripType" value="multiCity">
+                <label for="multiCity">Multi City</label>
+
+                <a href="#">Book International and domestic Flights</a>
+            </div>
+
+            <div class="form-section">
+                <div class="form-group way">
+                    <label for="from">From</label>
+                    <input type="text" id="from" placeholder="Enter city or airport" autocomplete="off">
+                    <div class="airport-suggestions " id="from-suggestions"></div>
+                    <div class="airport-info" id="from-info"></div>
+                </div>
+
+               
+               
+                <div class="form-group way">
+                    <label for="to">To</label>
+                    <input type="text" id="to" placeholder="Enter city or airport" autocomplete="off">
+                    <div class="airport-suggestions" id="to-suggestions"></div>
+                    <div class="airport-info" id="to-info"></div>
+                </div>
+                 
+                <div class="form-group way">
+                    <label for="departure">Departure</label>
+                    <input type="date" id="departure">
+                    <div class="airport-info" id="departure-day">Tuesday</div>
+                </div>
+        
+                <div class="form-group way">
+                    <label for="travellers">Travellers & Class</label>
+                    <input type="number" id="travellers" value="1" min="1" max="20">
+                    <select id="class">
+                        <option value="economy">Economy</option>
+                        <option value="premium-economy">Premium Economy</option>
+                        <option value="business">Business</option>
+                        <option value="first-class">First Class</option>
+                    </select>
+                </div>
+            </div>
+            
+          
+
+            <div class="discount ">
+                <div class="mylogo">
+                    <div class="mytext">
+                        <p>Select a Special fare</p>
+                    </div>
+                    <div class="mytext2">
+                        <p>EXTRA SAVINGS</p>
+                    </div>
+                </div>
+
+                <div class="regular">
+                    <label>
+                        <input type="radio" name="color" value="green">Regular
+                        <p style="padding-left: 25px;font-size: 0.85rem">regular fares</p><br>
+                    </label>
+
+                </div>
+                <div class="student">
+                    <label>
+                        <input type="radio" name="color" value="yellow"> Student
+                        <p style="padding-left: 25px;font-size: 0.85rem;">Extra discount/baggage</p>
+                    </label><br>
+                </div>
+                <div class="senior ">
+                    <label>
+                        <input type="radio" name="color" value="yellow"> Senior Citizen
+                        <p style="padding-left: 25px;font-size: 0.85rem">upto ₹ 600 off</p>
+                    </label>
+                </div>
+                <div class="armed ">
+                    <label>
+                        <input type="radio" name="color" value="yellow"> Armed Forces
+                        <p style="padding-left: 25px;font-size: 0.85rem">Upto ₹ 600 off</p>
+                    </label>
+                </div>
+                <div class="Doctor ">
+                    <label>
+                        <input type="radio" name="color" value="yellow"> Doctor and Nurses
+                        <p style="padding-left: 25px;padding-bottom: 20px;font-size: 0.85rem">Upto ₹ 600 off</p>
+                    </label>
+                </div>
+            </div>
+
+            <button class="search-button">SEARCH</button>
+        </div>
+    </div>
+    
+
+
+
+    <div class="menu-container">
+        <div class="menu-item">
+            <img src="https://promos.makemytrip.com/appfest/2x/icon-wheretogo-23062022.png" alt="Where2Go">
+            <span>Where2Go</span>
+        </div>
+        <div class="menu-item">
+            <img src="https://promos.makemytrip.com/appfest/2x/trip-money-1.png" alt="Insurance">
+            <span>Insurance<br>For International Trips</span>
+        </div>
+        <div class="menu-item active">
+            <img src="https://promos.makemytrip.com/Growth/Images/B2C/2x/dt_tert_flights.png" alt="Explore International Flights">
+            <span>Explore International Flights<br>Cheapest Flights to Paris, Bali, Tokyo & more</span>
+        </div>
+        <div class="menu-item">
+            <img src="https://promos.makemytrip.com/images/myBiz/MICE/mice%20icon%20-%20square.png" alt="MICE">
+            <span>MICE<br>Offsites, Events & Meetings</span>
+        </div>
+        <div class="menu-item">
+            <img src="https://promos.makemytrip.com/appfest/2x/gift%20card%201.png" alt="Gift Cards">
+            <span>Gift Cards</span>
+        </div>
+    </div>
+</div>
+    <div class="offers-section">
+        <div class="offers-header">
+            <h1 style="margin-left:60px;">Offers</h1>
+            <div class="offers-tabs">
+                <a href="#">All Offers</a>
+                <a href="#">Bank Offers</a>
+                <a href="#">Flights</a>
+                <a href="#">Hotels</a>
+                <a href="#">Holidays</a>
+                <a href="#">Trains</a>
+                <a href="#">Cabs</a>
+                <a href="#">Bus</a>
+                <a href="#">Forex</a>
+            </div>
+            <a href="#" class="view-all">VIEW ALL</a>
+        </div>
+        <div class="offers-grid">
+            <div class="offer-item">
+                <img src="https://promos.makemytrip.com/notification/xhdpi//indigo-116x116-29052023.jpg?im=Resize=(134,134)" alt="IndiGo Offer">
+                <div class="offer-info">
+                    <p>INTL FLIGHTS</p>
+                    <h3>LIVE NOW: Getaway Sale by IndiGo</h3>
+                    <p>________</p>
+                    <p>with flight fares starting @₹1,111*</p>
+                    <a href="#">BOOK NOW</a>
+                </div>
+            </div>
+            <div class="offer-item">
+                <img src="https://promos.makemytrip.com/notification/xhdpi//116X116-radisson-25042024.jpg?im=Resize=(134,134)" alt="Radisson Hotels Offer">
+                <div class="offer-info">
+                    <p>INTL HOTELS</p>
+                    <h3>For Meaningful Experiences & Savings:</h3>
+                    <p>________</p>
+                    <p>Get Up to 25% OFF on Domestic & International Radisson Hotels</p>
+                    <a href="#">VIEW DETAILS</a>
+                </div>
+            </div>
+            <div class="offer-item">
+                <img src="https://promos.makemytrip.com/notification/xhdpi//Desktop-Intl-BrandCampaign-24june.jpg?im=Resize=(134,134)" alt="Radisson Hotels Offer">
+                <div class="offer-info">
+                    <p>INTL HOTELS</p>
+                    <h3>FOR YOUR INTERNATIONAL TRIPS:</h3>
+                    <p>________</p>
+                    <p>Grab HUGE SAVINGS on international Hotels</p>
+                    <a href="#">T&CS Apply</a>
+                </div>
+            </div>
+            <!--<div class="offer-item">
+                <img src="https://promos.makemytrip.com/notification/xhdpi//116X116-radisson-25042024.jpg?im=Resize=(134,134)" alt="Radisson Hotels Offer">
+                <div class="offer-info">
+                    <p>INTL HOTELS</p>
+                    <h3>For Meaningful Experiences & Savings:</h3>
+                    <p>Get Up to 25% OFF on Domestic & International Radisson Hotels</p>
+                    <a href="#">VIEW DETAILS</a>
+                </div>
+            </div>-->
+            <!-- Repeat for other offer items -->
+        </div>
+
+        <div class="offers-grid">
+            <div class="offer-item">
+                <img src="https://promos.makemytrip.com/notification/xhdpi//116X11-paul-john-10062024.jpg?im=Resize=(134,134)" alt="IndiGo Offer">
+                <div class="offer-info">
+                    <p>DOM HOTELS</p>
+                    <h3>EXPERIENCE FINE LUXURY & IMPECCABLE SERVICES. </h3>
+                    <p>________</p>
+                    <p>At Paul joan Resorts & Hotels with up to 25% OFF* on Stays </p>
+                    <a href="#">VIEW DETAILS</a>
+                </div>
+            </div>
+            <div class="offer-item">
+                <img src="https://promos.makemytrip.com/notification/xhdpi//116X116-icici-dh-28062023.jpg?im=Resize=(134,134)" alt="Radisson Hotels Offer">
+                <div class="offer-info">
+                    <p>DOM HOTELS</p>
+                    <h3>Grab FLAT 15% OFF 3,4,5 Star Stays in India</h3>
+                    <p>________</p>
+                    <p>& Treat yourself to a refreshing, Luxurious break.</p>
+                    <a href="#">VIEW DETAILS</a>
+                </div>
+            </div>
+            <div class="offer-item">
+                <img src="https://promos.makemytrip.com/appfest/xhdpi//Desktop-VandeBharat-4May.jpg?im=Resize=(134,134)" alt="Radisson Hotels Offer">
+                <div class="offer-info">
+                    <p>RAILS</p>
+                    <h3>Exiting NEWS : Book a Tickets For Vande Bharat Exprs...</h3>
+                    <p>________</p>
+                    <p>with us hassel free & get for a train journey</p>
+                    <a href="#">BOOK NOW</a>
+                </div>
+            </div>
+            <!--<div class="offer-item">
+                <img src="https://promos.makemytrip.com/notification/xhdpi//116X116-radisson-25042024.jpg?im=Resize=(134,134)" alt="Radisson Hotels Offer">
+                <div class="offer-info">
+                    <p>INTL HOTELS</p>
+                    <h3>For Meaningful Experiences & Savings:</h3>
+                    <p>Get Up to 25% OFF on Domestic & International Radisson Hotels</p>
+                    <a href="#">VIEW DETAILS</a>
+                </div>
+            </div>-->
+            <!-- Repeat for other offer items -->
+        </div>
+    </div>
+
+    <!-- <section id="booking">
+         <div class="container">
+            <div class="book1">
+             <form action="search_booking.php" method="post">
+                 <h2>Book Your Ticket</h2>
+                <label for="From"><b>From:</b></label>
+                <span class="input-icon"></span>
+                <input type="text" id="Form" name="Form"placeholder=" Departure..." required>
+                <label for="To"><b>To:</b></label>
+                <input type="text" id="To" name="To" placeholder="Destination..." required>
+                <label for="date"><b>Departure Date:</b></label>
+                <input type="date" id="date" name="date" required>
+                <button type="search">Search</button>
+            </form>
+        </div>
+
+    </div>
+     </section> -->
+    <div class="heading2">
+        <h2>Explore Top Destinations</h2>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4">
+                <a href="#">
+                    <img src="A:\mycss\my trip\paris.jpg" width="350px" height="330px" alt="trully">
+                    <h2> </h2>
+                </a>
+            </div>
+            <div class="col-sm-4">
+                <a href="#"><img src="A:\mycss\my trip\southafrica.webp" width="350" height="333" alt="trully"></a>
+            </div>
+            <div class="col-sm-4">
+                <a href="#"><img src="A:\mycss\my trip\singapore.jpg" width="350" height="330px" alt="trully"></a>
+            </div>
+            <div class="col-sm-4">
+                <a href="#"> <img src="A:\mycss\my trip\new york" width="355" height="330px" alt="trully"></a>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <a href="#" style="color:black;"><h3>Paris, France</h3></a>
+        <a href="#" style="color:black;"><h3>Capetown, South Africa</h3></a>
+        <a href="#" style="color: black;"><h3>Singapore, Singapore</h3></a>
+        <a href="#" style="color: black;"><h3>New York, USA</h3></a>
+    </div>
+
+    <div class=" container video">
+        <iframe src="C:\Users\ingle\Downloads\4147886-uhd_3840_2160_24fps.mp4" width="1240px" height="697px "></iframe>
+    </div>
+    <div class="row">
+        <a href="#" style="color:white">Swizerland</a>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4">
+                <a href="#">   <img src="https://wallpapers-hub.art/wallpaper-images/222783.jpg" width="350px" height="330px" alt="trully"></a>
+                <h2> </h2>
+            </div>
+            <div class="col-sm-4">
+                <a href="#">  <img src="https://wallpapercave.com/wp/wp5391585.jpg" width="350" height="333" alt="trully"></a>
+            </div>
+            <div class="col-sm-4">
+                <a href="#">  <img src="https://t4.ftcdn.net/jpg/03/09/75/75/360_F_309757539_uN5m8GcoukmQ3HLNhlxiVArqyqdwH0t2.jpg" width="350" height="330px" alt="trully"></a>
+            </div>
+            <div class="col-sm-4">
+                <a href="#"> <img src="https://www.telegraph.co.uk/content/dam/Travel/Destinations/Asia/China/china-overview-greatwall.jpg?imwidth=680" width="355" height="330px" alt="trully"></a>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <a href="#" style="color:white;"><h3>Dubai, UAE</h3></a>
+        <a href="#" style="color:white;"><h3>Agra, India</h3></a>
+        <a href="#" style="color:white;"><h3>Tokiyo, Japan</h3></a>
+        <a href="#" style="color:white"><h3>Shanghai, China</h3></a>
+    </div>
+    <script src="script.js"></script>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Make your Trip. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!--<script src="script.js"></script>-->
+    
+</body>
+</html>
+

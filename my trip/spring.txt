@@ -1,0 +1,32 @@
+Spring framework-
+
+spring is a framework.
+introduce in 2003.
+it was developed by Rod Johnson.
+spring is a lightweight framework. 
+spring framework basically use to develop the web application.
+
+spring framework Architecture-
+
+
+
+
+     Spring IOC Module-
+       IOC means inversion of control.
+	this is a container and its core part of spring framework.
+	the IOC container get some information from the xml file.
+	there are two types of IOC container
+	1)Bean Factory
+	2)Application context
+
+	1)bean factory is basic container and 	application context is advance container.
+	-this container responsible to crating an object of our bean class.
+	
+	Dependency injection (DI)-
+	this is basically use to injecting the 	property's to an object. 
+	dependency injection is a design patterns that remove the dependency from the code.
+	the dependency injection necks your application code loosely couple.
+
+        there are two types of dependency injection 
+	1)setter injection 
+	2)constructer injection 

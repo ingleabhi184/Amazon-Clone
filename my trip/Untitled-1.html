@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .selection {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .selection label {
+            margin-right: 10px;
+        }
+        .selection input {
+            width: 50px;
+            text-align: center;
+        }
+        .travel-class {
+            display: flex;
+            justify-content: space-between;
+        }
+        .travel-class label {
+            margin-right: 10px;
+        }
+        .apply-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="section">
+            <div class="label">ADULTS (12y+)</div>
+            <div class="selection">
+                <label for="adults">on the day of travel</label>
+                <input type="number" id="adults" name="adults" value="1" min="1" max="9">
+            </div>
+        </div>
+        <div class="section">
+            <div class="label">CHILDREN (2y - 12y)</div>
+            <div class="selection">
+                <label for="children">on the day of travel</label>
+                <input type="number" id="children" name="children" value="0" min="0" max="6">
+            </div>
+        </div>
+        <div class="section">
+            <div class="label">INFANTS (below 2y)</div>
+            <div class="selection">
+                <label for="infants">on the day of travel</label>
+                <input type="number" id="infants" name="infants" value="0" min="0" max="6">
+            </div>
+        </div>
+        <div class="section">
+            <div class="label">CHOOSE TRAVEL CLASS</div>
+            <div class="travel-class">
+                <label><input type="radio" name="travel-class" value="economy" checked> Economy/Premium Economy</label>
+                <label><input type="radio" name="travel-class" value="premium"> Premium Economy</label>
+                <label><input type="radio" name="travel-class" value="business"> Business</label>
+            </div>
+        </div>
+        <div class="section">
+            <button class="apply-btn" type="button">APPLY</button>
+        </div>
+    </div>
+</body>
+</html>

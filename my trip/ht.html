@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .booking-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .booking-col {
+            width: 24%;
+            position: relative;
+            border:1.1px dotted black;
+        }
+        .booking-label {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        .booking-input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+            border:none;
+        }
+        .booking-input-date {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .booking-subtext {
+            font-size: 12px;
+            color: #999;
+            margin-top: 5px;
+        }
+        .autocomplete-list {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            border: 1px solid #ccc;
+            background: #fff;
+            z-index: 1000;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+        .autocomplete-item {
+            padding: 10px;
+            cursor: pointer;
+        }
+        .autocomplete-item:hover {
+            background: #f0f0f0;
+        }
+        .traveller-class-section {
+            padding: 10px;
+            border: 1px solid #ccc;
+            background: #f9f9f9;
+            margin-bottom: 15px;
+        }
+        #travelers-display {
+            cursor: pointer;
+        }
+        #apply-selection {
+            padding: 10px 20px;
+            cursor: pointer;
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            font-size: 16px;
+        }
+        #apply-selection:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Flight Booking</h1>
+    
+    <div class="booking-row">
+        <!-- From Airport -->
+        <div class="booking-col">
+            <div id="departure-label" class="booking-label">From</div>
+            <input type="text" id="departure-airport" class="booking-input" autocomplete="off"placeholder="from">
+            <div id="departure-subtext" class="booking-subtext">Select departure airport</div>
+            <div id="departure-autocomplete" class="autocomplete-list"></div>
+        </div>
+
+        <!-- To Airport -->
+        <div class="booking-col">
+            <div id="arrival-label" class="booking-label">To</div>
+            <input type="text" id="arrival-airport" class="booking-input" autocomplete="off" placeholder="to">
+            <div id="arrival-subtext" class="booking-subtext">Select destination airport</div>
+            <div id="arrival-autocomplete" class="autocomplete-list"></div>
+        </div>
+
+        <!-- Departure Date -->
+        <div class="booking-col">
+            <div class="booking-label">Departure</div>
+            <input type="date" id="departure-date" class="booking-input-date">
+            <div id="departure-day" class="booking-subtext">Select a date to see the day</div>
+        </div>
+
+        <!-- Return Date -->
+        <div class="booking-col">
+            <div class="booking-label">Return</div>
+            <input type="date" id="return-date" class="booking-input-date">
+            <div id="return-day" class="booking-subtext">Select a date to see the day</div>
+        </div>
+    </div>
+
+    <div class="traveller-class-section">
+        <div id="travelers-display" class="booking-label">1 Traveller, Economy</div>
+        <div>
+            <label for="travellers">Number of Travellers:</label>
+            <input type="number" id="travellers" value="1" min="1" max="60" class="booking-input" style="width: 50px;">
+        </div>
+        <div>
+            <label for="class">Class:</label>
+            <select id="class" class="booking-input">
+                <option value="economy">Economy</option>
+                <option value="premium-economy">Premium Economy</option>
+                <option value="business">Business</option>
+                <option value="first-class">First Class</option>
+            </select>
+        </div>
+        <button id="apply-selection">Apply</button>
+    </div>
+
+    <button id="search-flights">Search Flights</button>
+
+    <script>
+        const airports = [
+            { name: "Mumbai", code: "BOM", full_name: "Chhatrapati Shivaji International Airport", country: "India" },
+            { name: "Dubai", code: "DXB", full_name: "Dubai International Airport", country: "United Arab Emirates" },
+            { name: "New York", code: "JFK", full_name: "John F. Kennedy International Airport", country: "USA" },
+            { name: "London", code: "LHR", full_name: "Heathrow Airport", country: "UK" },
+            { name: "Paris", code: "CDG", full_name: "Charles de Gaulle Airport", country: "France" },
+            // Add more airports as needed
+        ];
+
+        function autocomplete(input, listElement, labelElement, subtextElement, defaultLabel, otherInput) {
+            input.addEventListener("focus", function() {
+                labelElement.textContent = defaultLabel === "From" ? "From:" : "To:";
+                input.value = "";
+                filterAirports(input, listElement, otherInput);
+            });
+
+            input.addEventListener("input", function() {
+                filterAirports(input, listElement, otherInput);
+            });
+
+            input.addEventListener("blur", function() {
+                if (!input.value) {
+                    labelElement.textContent = defaultLabel;
+                    const defaultAirport = airports.find(airport => airport.name === defaultLabel);
+                    input.value = defaultAirport.name;
+                    subtextElement.textContent = `${defaultAirport.code}, ${defaultAirport.full_name}`;
+                }
+            });
+
+            function filterAirports(input, listElement, otherInput) {
+                const value = input.value.toLowerCase();
+                const otherValue = otherInput.value.toLowerCase();
+                listElement.innerHTML = "";
+
+                if (!value) return;
+
+                const filteredAirports = airports.filter(airport =>
+                    (airport.name.toLowerCase().includes(value) || 
+                    airport.country.toLowerCase().includes(value) ||
+                    airport.code.toLowerCase().includes(value)) &&
+                    airport.name.toLowerCase() !== otherValue // Prevent selecting the same airport
+                );
+
+                filteredAirports.forEach(airport => {
+                    const item = document.createElement("div");
+                    item.classList.add("autocomplete-item");
+                    item.textContent = `${airport.name}, ${airport.country} (${airport.code})`;
+                    item.addEventListener("click", function() {
+                        input.value = airport.name;
+                        subtextElement.textContent = `${airport.code}, ${airport.full_name}`;
+                        listElement.innerHTML = "";
+                    });
+                    listElement.appendChild(item);
+                });
+            }
+        }
+
+        // Initialize autocomplete for departure and arrival airports
+        autocomplete(
+            document.getElementById("departure-airport"),
+            document.getElementById("departure-autocomplete"),
+            document.getElementById("departure-label"),
+            document.getElementById("departure-subtext"),
+            "From",
+            document.getElementById("arrival-airport")
+        );
+
+        autocomplete(
+            document.getElementById("arrival-airport"),
+            document.getElementById("arrival-autocomplete"),
+            document.getElementById("arrival-label"),
+            document.getElementById("arrival-subtext"),
+            "To",
+            document.getElementById("departure-airport")
+        );
+
+        // Set today's date as the minimum date for departure and return
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById("departure-date").setAttribute("min", today);
+        document.getElementById("return-date").setAttribute("min", today);
+
+        // Update the day when a departure date is selected
+        document.getElementById("departure-date").addEventListener("change", function() {
+            const selectedDate = this.value;
+            const dayOfWeek = getDayOfWeek(selectedDate);
+            document.getElementById("departure-day").textContent = dayOfWeek;
+        });
+
+        // Update the day when a return date is selected
+        document.getElementById("return-date").addEventListener("change", function() {
+            const selectedDate = this.value;
+            const dayOfWeek = getDayOfWeek(selectedDate);
+            document.getElementById("return-day").textContent = dayOfWeek;
+        });
+
+        // Update traveler and class selection with a max limit of 60 travelers
+        document.getElementById('apply-selection').addEventListener('click', function() {
+            let travelers = document.getElementById('travellers').value;
+            const travelClass = document.getElementById('class').value.replace(/-/g, ' ');
+            if (travelers > 60) {
+                alert("You cannot select more than 60 travelers.");
+                travelers = 60;
+                document.getElementById('travellers').value = 60;
+            }
+            const displayText = `${travelers} Traveller${travelers > 1 ? 's' : ''}, ${travelClass.charAt(0).toUpperCase() + travelClass.slice(1)}`;
+            document.getElementById('travelers-display').textContent = displayText;
+        });
+
+        // Function to get the day of the week
+        function getDayOfWeek(dateString) {
+            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const date = new Date(dateString);
+            return days[date.getDay()];
+        }
+    </script>
+
+</body>
+</html>
